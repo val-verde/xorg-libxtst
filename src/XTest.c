@@ -30,7 +30,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-/* $XFree86: xc/lib/Xtst/XTest.c,v 1.6 2002/10/16 00:37:33 dawes Exp $ */
+/* $XFree86$ */
 
 #define NEED_REPLIES
 #include <X11/Xlibint.h>
