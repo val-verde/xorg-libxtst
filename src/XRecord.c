@@ -50,7 +50,7 @@ from The Open Group.
 /*
  * By Stephen Gildea, X Consortium, and Martha Zimet, NCD.
  */
-/* $XFree86$ */
+/* $XFree86: xc/lib/Xtst/XRecord.c,v 1.7 2003/09/13 21:33:00 dawes Exp $ */
 
 #include <stdio.h>
 #include <assert.h>
