@@ -58,7 +58,6 @@ from The Open Group.
 #define NEED_REPLIES
 #include <X11/Xlibint.h>
 #include <X11/extensions/Xext.h>
-#include <X11/Xtrans.h>
 #include <X11/extensions/extutil.h>
 #include <X11/extensions/recordstr.h>
 
