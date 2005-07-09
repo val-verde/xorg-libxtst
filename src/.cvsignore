@@ -1,0 +1,6 @@
+.deps
+.libs
+libXtst.la
+*.lo
+Makefile
+Makefile.in
