@@ -1,6 +1,6 @@
 lib_LTLIBRARIES = libXtst.la
 
-libXtst_la_SOURCES = \ 
+libXtst_la_SOURCES = \
          XRecord.c \
          XTest.c
 
