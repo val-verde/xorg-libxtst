@@ -34,7 +34,7 @@ AC_PROG_CC
 AC_PROG_LIBTOOL
 
 # Check for dependencies
-PKG_CHECK_MODULES(XTST, x11 xext recordproto xextproto)
+PKG_CHECK_MODULES(XTST, x11 xext recordproto xextproto inputproto)
 
 AC_SUBST(XTST_CFLAGS)
 AC_SUBST(XTST_LIBS)
