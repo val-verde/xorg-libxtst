@@ -43,9 +43,11 @@ LINT_FLAGS="${LINT_FLAGS} ${XTST_CFLAGS}"
 
 AC_SUBST(XTST_CFLAGS)
 AC_SUBST(XTST_LIBS)
-		  
+
+XORG_MANPAGE_SECTIONS
 XORG_RELEASE_VERSION
 
 AC_OUTPUT([Makefile
+	   man/Makefile
 	   src/Makefile
            xtst.pc])
