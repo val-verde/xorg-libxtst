@@ -462,7 +462,9 @@ XRecordGetContext(dpy, context, state_return)
     {
      	client_inf = (XRecordClientInfo **) Xcalloc(count, sizeof(XRecordClientInfo*));
 	ret->client_info = client_inf;
-	client_inf_str = (XRecordClientInfo *) Xmalloc(count*sizeof(XRecordClientInfo));
+	if (client_inf != NULL) {
+	    client_inf_str = (XRecordClientInfo *) Xmalloc(count*sizeof(XRecordClientInfo));
+	}
         if (!client_inf || !client_inf_str)
         {
            for(i = 0; i < count; i++)
@@ -485,7 +487,10 @@ XRecordGetContext(dpy, context, state_return)
 	    if (xclient_inf.nRanges)
 	    {
 		client_inf_str[i].ranges = (XRecordRange**) Xcalloc(xclient_inf.nRanges, sizeof(XRecordRange*));
-		ranges = (XRecordRange*) Xmalloc(xclient_inf.nRanges * sizeof(XRecordRange));
+		if (client_inf_str[i].ranges != NULL) {
+		    ranges = (XRecordRange*)
+			Xmalloc(xclient_inf.nRanges * sizeof(XRecordRange));
+		}
 		if (!client_inf_str[i].ranges || !ranges) {
 		    /* XXX eat data */
 		    UnlockDisplay(dpy);
