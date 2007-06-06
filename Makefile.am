@@ -26,3 +26,7 @@ pkgconfig_DATA = xtst.pc
 
 EXTRA_DIST = xtst.pc.in autogen.sh
 
+if LINT
+lint:
+	(cd src && $(MAKE) $(MFLAGS) lint)
+endif LINT

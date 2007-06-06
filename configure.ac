@@ -36,6 +36,11 @@ AC_PROG_LIBTOOL
 # Check for dependencies
 PKG_CHECK_MODULES(XTST, x11 xext recordproto xextproto inputproto)
 
+dnl Allow checking code with lint, sparse, etc.
+XORG_WITH_LINT
+XORG_LINT_LIBRARY([Xtst])
+LINT_FLAGS="${LINT_FLAGS} ${XTST_CFLAGS}"
+
 AC_SUBST(XTST_CFLAGS)
 AC_SUBST(XTST_LIBS)
 		  
