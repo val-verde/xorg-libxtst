@@ -28,16 +28,30 @@ libmandir = $(LIB_MAN_DIR)
 
 LIB_MAN_DIR_SUFFIX = $(LIB_MAN_DIR:@mandir@/man%=%)
 
-libman_PRE = XTest.man
+libman_xml = XTest.xml
 
-BUILT_SOURCES = shadows.DONE
+XTest_manpages =	\
+	XTestQueryExtension                 \
+	XTestCompareCursorWithWindow        \
+	XTestCompareCurrentCursorWithWindow \
+	XTestFakeKeyEvent                   \
+	XTestFakeButtonEvent                \
+	XTestFakeMotionEvent                \
+	XTestFakeRelativeMotionEvent        \
+	XTestGrabControl                    \
+	XTestSetGContextOfGC                \
+	XTestSetVisualIDOfVisual            \
+	XTestDiscard
 
-EXTRA_DIST = $(libman_PRE)
+libman_PRE = $(XTest_manpages:%=%.man)
+
+EXTRA_DIST = $(libman_PRE) $(libman_xml)
 
 CLEANFILES = $(libman_DATA) $(BUILT_SOURCES)
 
-libman_DATA = $(libman_PRE:man=@LIB_MAN_SUFFIX@) \
-	      $(XTest_shadows:=.@LIB_MAN_SUFFIX@)
+MAINTAINERCLEANFILES = $(libman_PRE)
+
+libman_DATA = $(libman_PRE:man=@LIB_MAN_SUFFIX@)
 
 SED = sed
 
@@ -58,24 +72,15 @@ SUFFIXES = .$(LIB_MAN_SUFFIX) .man
 .man.$(LIB_MAN_SUFFIX):
 	sed $(MAN_SUBSTS) < $< > $@
 
-# Generate man page shadow files (Replaces InstallManPageAliases from Imake)
+# Generate nroff sources from DocBook/xml
 
-XTest_shadows =	\
-	XTestQueryExtension                 \
-	XTestCompareCursorWithWindow        \
-	XTestCompareCurrentCursorWithWindow \
-	XTestFakeKeyEvent                   \
-	XTestFakeButtonEvent                \
-	XTestFakeMotionEvent                \
-	XTestFakeRelativeMotionEvent        \
-	XTestGrabControl                    \
-	XTestSetGContextOfGC                \
-	XTestSetVisualIDOfVisual            \
-	XTestDiscard
+dist-hook: $(libman_PRE)
 
-shadows.DONE:
-	-rm -f $(XTest_shadows:=.@LIB_MAN_SUFFIX@)
-	(for i in $(XTest_shadows:=.@LIB_MAN_SUFFIX@) ; do \
-	 echo .so man$(LIB_MAN_DIR_SUFFIX)/XTest.$(LIB_MAN_SUFFIX) > $$i; \
-	 done)
+if HAVE_XMLTO
+$(libman_PRE): $(libman_xml)
+	$(XMLTO) man $(libman_xml)
+	for m in $(XTest_manpages); do \
+	  mv -f $$m.__libmansuffix__ $$m.man ; \
+	done
 
+endif HAVE_XMLTO

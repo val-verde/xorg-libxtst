@@ -33,6 +33,12 @@ AM_CONFIG_HEADER(config.h)
 AC_PROG_CC
 AC_PROG_LIBTOOL
 
+# Check for xmlto for man page conversion 
+# (only needed by people building tarballs)
+AC_ARG_VAR([XMLTO], [Path to xmlto command])
+AC_PATH_PROG([XMLTO], [xmlto])
+AM_CONDITIONAL([HAVE_XMLTO], [test "x$XMLTO" != "x"])
+
 # Check for dependencies
 PKG_CHECK_MODULES(XTST, x11 xext recordproto xextproto inputproto)
 

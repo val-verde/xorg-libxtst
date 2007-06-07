@@ -1,0 +1,7 @@
+shadows.DONE
+*.3
+*~
+*.man
+*.__libmansuffix__
+Makefile
+Makefile.in
