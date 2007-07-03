@@ -28,7 +28,7 @@ libmandir = $(LIB_MAN_DIR)
 
 LIB_MAN_DIR_SUFFIX = $(LIB_MAN_DIR:@mandir@/man%=%)
 
-libman_xml = XTest.xml
+libman_xml = $(srcdir)/XTest.xml
 
 XTest_manpages =	\
 	XTestQueryExtension                 \
