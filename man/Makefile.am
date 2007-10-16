@@ -78,7 +78,7 @@ dist-hook: $(libman_PRE)
 
 if HAVE_XMLTO
 $(libman_PRE): $(libman_xml)
-	$(XMLTO) man $(srcdir)/$(libman_xml)
+	$(XMLTO) man $(libman_xml)
 	for m in $(XTest_manpages); do \
 	  mv -f $$m.__libmansuffix__ $$m.man ; \
 	done
