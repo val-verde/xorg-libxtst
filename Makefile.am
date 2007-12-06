@@ -27,6 +27,8 @@ pkgconfig_DATA = xtst.pc
 EXTRA_DIST = xtst.pc.in autogen.sh ChangeLog
 MAINTAINERCLEANFILES = ChangeLog
 
+.PHONY: ChangeLog
+
 ChangeLog:
 	(GIT_DIR=$(top_srcdir)/.git git-log > .changelog.tmp && mv .changelog.tmp ChangeLog; rm -f .changelog.tmp) || (touch ChangeLog; echo 'git directory not found: installing possibly empty changelog.' >&2)
 
