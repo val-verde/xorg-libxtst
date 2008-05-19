@@ -97,10 +97,11 @@ static XEXT_GENERATE_CLOSE_DISPLAY (close_display, xtest_info)
  *****************************************************************************/
 
 Bool
-XTestQueryExtension (dpy, event_basep, error_basep, majorp, minorp)
+XTestQueryExtension (dpy, event_base_return, error_base_return,
+			major_return, minor_return)
     Display *dpy;
-    int *event_basep, *error_basep;
-    int *majorp, *minorp;
+    int *event_base_return, *error_base_return;
+    int *major_return, *minor_return;
 {
     XExtDisplayInfo *info = find_display (dpy);
     register xXTestGetVersionReq *req;
@@ -120,10 +121,10 @@ XTestQueryExtension (dpy, event_basep, error_basep, majorp, minorp)
 	}
 	UnlockDisplay(dpy);
 	SyncHandle();
-	*event_basep = info->codes->first_event;
-	*error_basep = info->codes->first_error;
-	*majorp = rep.majorVersion;
-	*minorp = rep.minorVersion;
+	*event_base_return = info->codes->first_event;
+	*error_base_return = info->codes->first_error;
+	*major_return = rep.majorVersion;
+	*minor_return = rep.minorVersion;
 	return True;
     } else {
 	return False;
