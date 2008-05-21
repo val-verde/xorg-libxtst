@@ -77,7 +77,12 @@ SUFFIXES = .$(LIB_MAN_SUFFIX) .man
 dist-hook: $(libman_PRE)
 
 if HAVE_XMLTO
-$(libman_PRE): $(libman_xml)
+# The .PHONY intermediate target exists to make parallel builds work.
+.PHONY: do_xmlto_stage
+
+$(libman_PRE): do_xmlto_stage
+
+do_xmlto_stage: $(libman_xml)
 	$(XMLTO) man $(libman_xml)
 	for m in $(XTest_manpages); do \
 	  mv -f $$m.__libmansuffix__ $$m.man ; \
