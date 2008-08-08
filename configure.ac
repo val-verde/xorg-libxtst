@@ -40,7 +40,7 @@ AC_PATH_PROG([XMLTO], [xmlto])
 AM_CONDITIONAL([HAVE_XMLTO], [test "x$XMLTO" != "x"])
 
 # Check for dependencies
-PKG_CHECK_MODULES(XTST, x11 xext recordproto xextproto inputproto)
+PKG_CHECK_MODULES(XTST, x11 xext xi recordproto xextproto inputproto)
 
 dnl Allow checking code with lint, sparse, etc.
 XORG_WITH_LINT
