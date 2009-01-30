@@ -1,3 +1,5 @@
+.deps
+.libs
 aclocal.m4
 autom4te.cache
 compile
@@ -19,4 +21,13 @@ missing
 mkinstalldirs
 stamp-h1
 xtst.pc
+x.stamp
 *~
+*.3
+*.la
+*.lo
+*.man
+*.o
+libXtst-*.tar.*
+ChangeLog
+tags
