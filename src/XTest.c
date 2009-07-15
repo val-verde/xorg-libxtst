@@ -35,7 +35,7 @@ from The Open Group.
 #define NEED_REPLIES
 #include <X11/Xlibint.h>
 #include <X11/extensions/XTest.h>
-#include <X11/extensions/xteststr.h>
+#include <X11/extensions/xtestproto.h>
 #include <X11/extensions/Xext.h>
 #include <X11/extensions/extutil.h>
 #include <X11/extensions/XInput.h>
