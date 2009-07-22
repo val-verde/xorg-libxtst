@@ -30,7 +30,7 @@ in this Software without prior written authorization from The Open Group.
 #define _XTEST_H_
 
 #include <X11/Xfuncproto.h>
-#include <X11/extensions/xtest.h>
+#include <X11/extensions/xtestconst.h>
 #include <X11/extensions/XInput.h>
 
 _XFUNCPROTOBEGIN
