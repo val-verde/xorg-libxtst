@@ -411,9 +411,9 @@ XRecordGetContext(Display *dpy, XRecordContext context,
     xRecordGetContextReply 	rep;
     int			count, i, rn;
     xRecordRange   	xrange;
-    XRecordRange	*ranges;
+    XRecordRange	*ranges = NULL;
     xRecordClientInfo   xclient_inf;
-    XRecordClientInfo	**client_inf, *client_inf_str;
+    XRecordClientInfo	**client_inf, *client_inf_str = NULL;
     XRecordState	*ret;
 
     XRecordCheckExtension (dpy, info, 0);
