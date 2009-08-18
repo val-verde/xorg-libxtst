@@ -59,7 +59,7 @@ from The Open Group.
 #include <X11/Xlibint.h>
 #include <X11/extensions/Xext.h>
 #include <X11/extensions/extutil.h>
-#include <X11/extensions/recordstr.h>
+#include <X11/extensions/recordproto.h>
 #include <X11/extensions/record.h>
 
 static XExtensionInfo _xrecord_info_data;
