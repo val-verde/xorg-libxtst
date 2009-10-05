@@ -44,7 +44,7 @@ AC_PATH_PROG([XMLTO], [xmlto])
 AM_CONDITIONAL([HAVE_XMLTO], [test "x$XMLTO" != "x"])
 
 # Check for dependencies
-PKG_CHECK_MODULES(XTST, x11 xext xi [recordproto >= 1.13.99.1] [xextproto >= 7.0.99.3] inputproto)
+PKG_CHECK_MODULES(XTST, x11 [xext >= 1.0.99.4] xi [recordproto >= 1.13.99.1] [xextproto >= 7.0.99.3] inputproto)
 XTST_CFLAGS="$CWARNFLAGS $XTST_CFLAGS"
 AC_SUBST(XTST_CFLAGS)
 AC_SUBST(XTST_LIBS)
