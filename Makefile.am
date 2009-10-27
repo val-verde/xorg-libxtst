@@ -24,8 +24,7 @@ SUBDIRS = src man
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = xtst.pc
 
-EXTRA_DIST = xtst.pc.in ChangeLog
-MAINTAINERCLEANFILES = ChangeLog
+EXTRA_DIST = xtst.pc.in 
 
 .PHONY: ChangeLog
 
