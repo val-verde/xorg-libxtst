@@ -45,6 +45,11 @@ XTST_CFLAGS="$CWARNFLAGS $XTST_CFLAGS"
 AC_SUBST(XTST_CFLAGS)
 AC_SUBST(XTST_LIBS)
 
+# Determine if the source for man pages is available
+# It may already be present (tarball) or can be generated using xmlto
+AM_CONDITIONAL([INSTALL_MANPAGES],
+	[test -f "$srcdir/man/XTestQueryExtension.man" || test "x$have_xmlto" = xyes])
+
 dnl Allow checking code with lint, sparse, etc.
 XORG_WITH_LINT
 XORG_LINT_LIBRARY([Xtst])

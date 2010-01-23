@@ -46,7 +46,7 @@ CLEANFILES = $(libman_DATA) $(BUILT_SOURCES)
 
 MAINTAINERCLEANFILES = $(libman_PRE)
 
-if HAVE_XMLTO
+if INSTALL_MANPAGES
 libman_DATA = $(libman_PRE:man=@LIB_MAN_SUFFIX@)
 endif
 
