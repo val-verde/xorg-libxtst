@@ -41,9 +41,6 @@ AC_PROG_LIBTOOL
 
 # Check for dependencies
 PKG_CHECK_MODULES(XTST, x11 [xext >= 1.0.99.4] xi [recordproto >= 1.13.99.1] [xextproto >= 7.0.99.3] inputproto)
-XTST_CFLAGS="$CWARNFLAGS $XTST_CFLAGS"
-AC_SUBST(XTST_CFLAGS)
-AC_SUBST(XTST_LIBS)
 
 # Determine if the source for man pages is available
 # It may already be present (tarball) or can be generated using xmlto
