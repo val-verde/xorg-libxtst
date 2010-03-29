@@ -25,7 +25,6 @@ pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = xtst.pc
 
 MAINTAINERCLEANFILES = ChangeLog INSTALL
-EXTRA_DIST = xtst.pc.in 
 
 .PHONY: ChangeLog INSTALL
 
