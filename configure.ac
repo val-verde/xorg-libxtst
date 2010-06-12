@@ -55,4 +55,5 @@ LINT_FLAGS="${LINT_FLAGS} ${XTST_CFLAGS}"
 AC_OUTPUT([Makefile
 	   man/Makefile
 	   src/Makefile
-           xtst.pc])
+	   specs/Makefile
+	   xtst.pc])
