@@ -32,7 +32,9 @@ m4_ifndef([XORG_MACROS_VERSION],
           [m4_fatal([must install xorg-macros 1.6 or later before running autoconf/autogen])])
 XORG_MACROS_VERSION(1.6)
 XORG_DEFAULT_OPTIONS
+XORG_ENABLE_SPECS
 XORG_WITH_XMLTO(0.0.20)
+XORG_WITH_GROFF
 AM_CONFIG_HEADER(config.h)
 
 # Check for progs
