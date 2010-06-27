@@ -22,7 +22,7 @@
 #
 
 if ENABLE_SPECS
-doc_sources = xtestlib.xml
+doc_sources = xtestlib.xml recordlib.xml
 dist_doc_DATA = $(doc_sources)
 
 if HAVE_XMLTO
