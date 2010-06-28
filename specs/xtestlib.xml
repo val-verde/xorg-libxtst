@@ -26,42 +26,42 @@
 <legalnotice>
 
 <para>
-Permission to use, copy, modify, and distribute this documentation for 
-any purpose and without fee is hereby granted, provided that the above 
-copyright notice and this permission notice appear in all copies.  UniSoft 
-makes no representations about the suitability for any purpose of the 
-information in this document.  This documentation is provided 
+Permission to use, copy, modify, and distribute this documentation for
+any purpose and without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.  UniSoft
+makes no representations about the suitability for any purpose of the
+information in this document.  This documentation is provided
 &ldquo;as is&rdquo; without express or implied warranty.
 </para>
 
 <para>
-Permission is hereby granted, free of charge, to any person obtaining a copy 
-of this software and associated documentation files 
-(the &ldquo;Software&rdquo;), to deal in the Software without restriction, 
-including without limitation the rights to use, copy, modify, merge, publish, 
-distribute, sublicense, and/or sell copies of the Software, and to permit 
-persons to whom the Software is furnished to do so, subject to the following 
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files
+(the &ldquo;Software&rdquo;), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons to whom the Software is furnished to do so, subject to the following
 conditions:
 </para>
 
 <para>
-The above copyright notice and this permission notice shall be included in all 
+The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 </para>
 
 <para>
-THE SOFTWARE IS PROVIDED &ldquo;AS IS&rdquo;, WITHOUT WARRANTY OF ANY KIND, 
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN 
-NO EVENT SHALL THE X CONSORTIUM BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE IS PROVIDED &ldquo;AS IS&rdquo;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN
+NO EVENT SHALL THE X CONSORTIUM BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </para>
 
 <para>
-Except as contained in this notice, the name of the X Consortium shall not 
-be used in advertising or otherwise to promote the sale, use or other dealings 
+Except as contained in this notice, the name of the X Consortium shall not
+be used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from the X Consortium.
 </para>
 
@@ -103,10 +103,10 @@ itself needs testing, where possible, and so should be as simple as possible.
 <itemizedlist mark='bullet'>
   <listitem>
     <para>
-Confine the extension to an appropriate high level 
-within the server to minimize portability problems.  In practice this 
-means that the extension should be at the DIX level or use the 
-DIX/DDX interface, or both.  This has effects, in particular, on the 
+Confine the extension to an appropriate high level
+within the server to minimize portability problems.  In practice this
+means that the extension should be at the DIX level or use the
+DIX/DDX interface, or both.  This has effects, in particular, on the
 level at which "input synthesis" can occur.
     </para>
   </listitem>
@@ -132,7 +132,7 @@ Minimize performance penalties on normal server operation.
     <listitem>
       <para>Client Operations</para>
       <para>
-These routines manipulate otherwise hidden client-side behavior.  
+These routines manipulate otherwise hidden client-side behavior.
 The actual implementation will depend on the details of the actual language
 binding and what degree of request buffering, GContext caching, and so on, is
 provided.  In the C binding, defined in section 7, routines are provided
@@ -157,13 +157,13 @@ versions of its own.  The remaining two requests allow the following:
       <itemizedlist>
         <listitem>
           <para>
-Access to an otherwise "write-only" server resource: the 
+Access to an otherwise "write-only" server resource: the
 cursor associated with a given window
           </para>
         </listitem>
         <listitem>
           <para>
-Perhaps most importantly, limited synthesis of input 
+Perhaps most importantly, limited synthesis of input
 device events, almost as if a cooperative user had moved the pointing device
 or pressed a key or button.
           </para>
@@ -177,14 +177,14 @@ or pressed a key or button.
 <title>C Language Binding</title>
 
 <para>
-The C functions either provide direct access to the protocol and add no 
-additional semantics to those defined in section 5 or they correspond 
+The C functions either provide direct access to the protocol and add no
+additional semantics to those defined in section 5 or they correspond
 directly to the abstract descriptions of client operations in section 4.
 </para>
 
 <para>
-All XTEST extension functions and procedures, and all manifest constants 
-and macros, will start with the string "XTest".  All operations are 
+All XTEST extension functions and procedures, and all manifest constants
+and macros, will start with the string "XTest".  All operations are
 classified as server/client (Server) or client-only (Client).
 All routines that have return type Status will return nonzero for
 "success" and zero for "failure."  Even if the XTEST extension is
@@ -214,13 +214,13 @@ returns
 <function>True</function>
 if the specified display supports the XTEST extension, else
 <function>False</function>
-If the extension is supported, *event_base would be set to the event number 
-for the first event for this extension and *error_base would be set to the 
-error number for the first error for this extension.  As no errors or 
-events are defined for this version of the extension, the values returned 
-here are not defined (nor useful).  If the extension is supported, 
-*major_version and *minor_version are set to the major and minor version 
-numbers of the extension supported by the display.  Otherwise, none of 
+If the extension is supported, *event_base would be set to the event number
+for the first event for this extension and *error_base would be set to the
+error number for the first error for this extension.  As no errors or
+events are defined for this version of the extension, the values returned
+here are not defined (nor useful).  If the extension is supported,
+*major_version and *minor_version are set to the major and minor version
+numbers of the extension supported by the display.  Otherwise, none of
 the arguments are set.
 </para>
 
@@ -235,7 +235,7 @@ the arguments are set.
 
 <para>If the extension is supported,
 <function>XTestCompareCursorWithWindow</function>
-performs a comparison of the cursor whose ID is specified by cursor (which 
+performs a comparison of the cursor whose ID is specified by cursor (which
 may be
 <function>None</function>
 with the cursor of the window specified by window returning
@@ -254,9 +254,9 @@ zero is returned.
 </funcprototype>
 </funcsynopsis>
 
-<para>If the extension is supported, 
+<para>If the extension is supported,
 <function>XTestCompareCurrentCursorWithWindow</function>
-performs a comparison of the current cursor with the cursor of the specified 
+performs a comparison of the current cursor with the cursor of the specified
 window returning
 <function>True</function>
 if they are the same and
@@ -289,7 +289,7 @@ of the key with the specified keycode; otherwise, the request is ignored.
 </para>
 
 <para>
-If the extension is supported, the simulated event will not be processed 
+If the extension is supported, the simulated event will not be processed
 until delay milliseconds after the request is received (if delay is
 <function>CurrentTime</function>
 then this is interpreted as no delay at all).  No other requests from
@@ -317,7 +317,7 @@ or a
 <function>ButtonRelease</function>
 (if is_press is
 <function>False</function>
-of the logical button numbered by the specified button; otherwise, the 
+of the logical button numbered by the specified button; otherwise, the
 request is ignored.
 </para>
 
@@ -343,14 +343,14 @@ and subsequent processing of the simulated event has been completed.
 
 <para>If the extension is supported,
 <function>XTestFakeMotionEvent</function>
-requests the server to simulate a movement of the pointer to the specified 
-position (x, y) on the root window of screen_number; otherwise, the request 
-is ignored.  If screen_number is -1, the current screen (that the pointer 
+requests the server to simulate a movement of the pointer to the specified
+position (x, y) on the root window of screen_number; otherwise, the request
+is ignored.  If screen_number is -1, the current screen (that the pointer
 is on) is used.
 </para>
 
 <para>
-If the extension is supported, the simulated event will not be processed 
+If the extension is supported, the simulated event will not be processed
 until delay milliseconds after the request is received (if delay is
 <function>CurrentTime</function>
 then this is interpreted as no delay at all).  No other requests from
@@ -372,14 +372,14 @@ and subsequent processing of the simulated event has been completed.
 <para>
 If the extension is supported,
 <function>XTestFakeRelativeMotionEvent</function>
-requests the server to simulate a movement of the pointer by the specified 
+requests the server to simulate a movement of the pointer by the specified
 offsets (x, y) relative to the current pointer position on screen_number;
 otherwise, the request is ignored.  If screen_number is -1, the
 current screen (that the pointer is on) is used.
 </para>
 
 <para>
-If the extension is supported, the simulated event will not be processed 
+If the extension is supported, the simulated event will not be processed
 until delay milliseconds after the request is received (if delay is
 <function>CurrentTime</function>
 then this is interpreted as no delay at all).  No other requests from
@@ -399,7 +399,7 @@ and subsequent processing of the simulated event has been completed.
 <function>True</function>
 then the executing client becomes impervious to server grabs.  If impervious is
 <function>False</function>
-then the executing client returns to the normal state of being susceptible 
+then the executing client returns to the normal state of being susceptible
 to server grabs.
 </para>
 
@@ -452,17 +452,16 @@ if any requests were discarded; otherwise, it returns
 <title>References</title>
 
 <para>
-Annicchiarico, D., et al., <emphasis remap='I'>XTrap: The XTrap 
+Annicchiarico, D., et al., <emphasis remap='I'>XTrap: The XTrap
 Architecture</emphasis>.
 Digital Equipment Corporation, July 1991.
 </para>
 
 <para>
-Drake, K. J., <emphasis remap='I'>Some Proposals for a Minimum X11 
+Drake, K. J., <emphasis remap='I'>Some Proposals for a Minimum X11
 Testing Extension</emphasis>.
 UniSoft Ltd., June 1991.
 </para>
 
 </chapter>
 </book>
-
