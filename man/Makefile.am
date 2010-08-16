@@ -40,7 +40,7 @@ libman_PRE =	\
 
 EXTRA_DIST = $(libman_PRE) $(libman_xml) x.stamp
 
-CLEANFILES = $(libman_DATA) $(BUILT_SOURCES)
+CLEANFILES = $(libman_DATA)
 
 MAINTAINERCLEANFILES = $(libman_PRE)
 
