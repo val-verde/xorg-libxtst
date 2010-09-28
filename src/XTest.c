@@ -1,4 +1,3 @@
-/* $Xorg: XTest.c,v 1.5 2001/02/09 02:04:00 xorgcvs Exp $ */
 /*
 Copyright 1990, 1991 by UniSoft Group Limited
 */
@@ -30,7 +29,6 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-/* $XFree86: xc/lib/Xtst/XTest.c,v 1.5 2001/12/14 19:56:40 dawes Exp $ */
 
 #include <X11/Xlibint.h>
 #include <X11/extensions/XTest.h>
