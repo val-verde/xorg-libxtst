@@ -265,12 +265,10 @@ send_axes(
     req->length += ((n_axes + 5) / 6) * (SIZEOF(xEvent) >> 2);
     ev.type = XI_DeviceValuator + (long)info->data;
     ev.deviceid = dev->device_id;
-    ev.num_valuators = n_axes;
     ev.first_valuator = first_axis;
     while (n_axes > 0) {
-	n = n_axes;
-	if (n > 6)
-	    n = 6;
+	n = n_axes > 6 ? 6 : n_axes;
+	ev.num_valuators = n;
 	switch (n) {
 	case 6:
 	    ev.valuator5 = *(axes+5);
