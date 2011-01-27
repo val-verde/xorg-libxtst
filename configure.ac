@@ -40,7 +40,6 @@ XORG_CHECK_SGML_DOCTOOLS(1.5)
 AM_CONFIG_HEADER(config.h)
 
 # Check for progs
-AC_PROG_CC
 AC_PROG_LIBTOOL
 
 # Check for dependencies
