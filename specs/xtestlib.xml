@@ -197,7 +197,7 @@ The include file for this extension is
 &lt;<symbol role='Pn'>X11/extensions/XTest.h</symbol>&gt;.
 </para>
 
-<funcsynopsis>
+<funcsynopsis id='xtestqueryextension'>
 <funcprototype>
 <funcdef>Bool<function> XTestQueryExtension</function></funcdef>
 <paramdef>Display<parameter> *display</parameter></paramdef>
@@ -224,7 +224,7 @@ numbers of the extension supported by the display.  Otherwise, none of
 the arguments are set.
 </para>
 
-<funcsynopsis>
+<funcsynopsis id='xtestcomparecursorwithwindow'>
 <funcprototype>
 <funcdef>Bool<function> XTestCompareCursorWithWindow</function></funcdef>
 <paramdef>Display<parameter> *display</parameter></paramdef>
@@ -246,7 +246,7 @@ otherwise.  If the extension is not supported, then the request is ignored and
 zero is returned.
 </para>
 
-<funcsynopsis>
+<funcsynopsis id='xtestcomparecurrentcursorwithwindow'>
 <funcprototype>
 <funcdef>Bool<function>XTestCompareCurrentCursorWithWindow</function></funcdef>
 <paramdef>Display<parameter> *display</parameter></paramdef>
@@ -265,7 +265,7 @@ otherwise.  If the extension is not supported, then the request is ignored and
 zero is returned.
 </para>
 
-<funcsynopsis>
+<funcsynopsis id='xtestfakekeyevent'>
 <funcprototype>
 <funcdef><function>XTestFakeKeyEvent</function></funcdef>
 <paramdef>Display<parameter> *display</parameter></paramdef>
@@ -297,7 +297,7 @@ this client will be processed until this delay, if any, has expired
 and subsequent processing of the simulated event has been completed.
 </para>
 
-<funcsynopsis>
+<funcsynopsis id='xtestfakebuttonevent'>
 <funcprototype>
 <funcdef><function>XTestFakeButtonEvent</function></funcdef>
 <paramdef>Display<parameter> *display</parameter></paramdef>
@@ -330,7 +330,7 @@ this client will be processed until this delay, if any, has expired
 and subsequent processing of the simulated event has been completed.
 </para>
 
-<funcsynopsis>
+<funcsynopsis id='xtestfakemotionevent'>
 <funcprototype>
 <funcdef><function>XTestFakeMotionEvent</function></funcdef>
 <paramdef>Display<parameter> *display</parameter></paramdef>
@@ -358,7 +358,7 @@ this client will be processed until this delay, if any, has expired
 and subsequent processing of the simulated event has been completed.
 </para>
 
-<funcsynopsis>
+<funcsynopsis id='xtestfakerelativemotionevent'>
 <funcprototype>
 <funcdef><function>XTestFakeRelativeMotionEvent</function></funcdef>
 <paramdef>Display<parameter> *display</parameter></paramdef>
@@ -387,7 +387,7 @@ this client will be processed until this delay, if any, has expired
 and subsequent processing of the simulated event has been completed.
 </para>
 
-<funcsynopsis>
+<funcsynopsis id='xtestgrabcontrol'>
 <funcprototype>
 <funcdef><function>XTestGrabControl</function></funcdef>
 <paramdef>Display<parameter> *display</parameter></paramdef>
@@ -403,7 +403,7 @@ then the executing client returns to the normal state of being susceptible
 to server grabs.
 </para>
 
-<funcsynopsis>
+<funcsynopsis id='xtestsetgcontextofgc'>
 <funcprototype>
 <funcdef>Bool<function> XTestSetGContextOfGC</function></funcdef>
 <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -417,7 +417,7 @@ sets the GContext within the opaque datatype referenced by gc to
 be that specified by gid.
 </para>
 
-<funcsynopsis>
+<funcsynopsis id='xtestsetvisualIdofvisual'>
 <funcprototype>
 <funcdef><function>XTestSetVisualIDOfVisual</function></funcdef>
 <paramdef>Visual<parameter> *visual</parameter></paramdef>
@@ -431,7 +431,7 @@ sets the VisualID within the opaque datatype referenced by visual to
 be that specified by visualid.
 </para>
 
-<funcsynopsis>
+<funcsynopsis id='xtestdiscard'>
 <funcprototype>
 <funcdef>Bool<function> XTestDiscard</function></funcdef>
 <paramdef>Display<parameter> *display</parameter></paramdef>
