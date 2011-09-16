@@ -13,17 +13,16 @@
    <title>XTEST Extension Library</title>
    <subtitle>X Consortium Standard</subtitle>
    <releaseinfo>X Version 11, Release &fullrelvers;</releaseinfo>
+   <releaseinfo>Version 2.2</releaseinfo>
    <authorgroup>
       <author>
          <firstname>Kieron</firstname><surname>Drake</surname>
+         <affiliation><orgname>UniSoft Ltd.</orgname></affiliation>
       </author>
    </authorgroup>
-   <corpname>UniSoft Ltd.</corpname>
    <copyright><year>1992</year><holder>UniSoft Group Ltd.</holder></copyright>
    <copyright><year>1992</year><holder>X Consortium</holder></copyright>
    <copyright><year>1994</year><holder>X Consortium</holder></copyright>
-   <releaseinfo>Version 2.2</releaseinfo>
-   <affiliation><orgname>X Consortium</orgname></affiliation>
 
 <legalnotice>
 

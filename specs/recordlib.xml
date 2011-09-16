@@ -16,13 +16,12 @@
    <authorgroup>
       <author>
          <firstname>Martha</firstname><surname>Zimet</surname>
+         <affiliation><orgname>Network Computing Devices, Inc.</orgname></affiliation>
       </author>
    </authorgroup>
-   <corpname>Network Computing Devices, Inc.</corpname>
    <copyright><year>1994</year><holder>Network Computing Devices, Inc.</holder></copyright>
    <copyright><year>1995</year><holder>X Consortium</holder></copyright>
    <releaseinfo>Version 1.13</releaseinfo>
-   <affiliation><orgname>X Consortium</orgname></affiliation>
    <editor>
          <firstname>Stephen</firstname><surname>Gildea</surname>
          <affiliation><orgname>X Consortium</orgname></affiliation>
