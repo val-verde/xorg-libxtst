@@ -81,7 +81,7 @@ get_xinput_base(Display *dpy)
 }
 
 static XEXT_GENERATE_FIND_DISPLAY (find_display, xtest_info,
-				   xtest_extension_name, 
+				   xtest_extension_name,
 				   &xtest_extension_hooks, XTestNumberEvents,
 				   get_xinput_base(dpy))
 
