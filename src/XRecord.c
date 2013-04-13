@@ -420,11 +420,9 @@ XRecordGetContext(Display *dpy, XRecordContext context,
     XExtDisplayInfo 	*info = find_display (dpy);
     register 		xRecordGetContextReq   	*req;
     xRecordGetContextReply 	rep;
-    int			count, i, rn;
+    unsigned int	count, i, rn;
     xRecordRange   	xrange;
-    XRecordRange	*ranges = NULL;
     xRecordClientInfo   xclient_inf;
-    XRecordClientInfo	**client_inf, *client_inf_str = NULL;
     XRecordState	*ret;
 
     XRecordCheckExtension (dpy, info, 0);
@@ -454,13 +452,18 @@ XRecordGetContext(Display *dpy, XRecordContext context,
 
     if (count)
     {
-     	client_inf = (XRecordClientInfo **) Xcalloc(count, sizeof(XRecordClientInfo*));
-	ret->client_info = client_inf;
-	if (client_inf != NULL) {
-	    client_inf_str = (XRecordClientInfo *) Xmalloc(count*sizeof(XRecordClientInfo));
+	XRecordClientInfo	**client_inf = NULL;
+	XRecordClientInfo	*client_inf_str = NULL;
+
+	if (count < (INT_MAX / sizeof(XRecordClientInfo))) {
+	    client_inf = Xcalloc(count, sizeof(XRecordClientInfo *));
+	    if (client_inf != NULL)
+		client_inf_str = Xmalloc(count * sizeof(XRecordClientInfo));
 	}
+	ret->client_info = client_inf;
         if (!client_inf || !client_inf_str)
         {
+	   free(client_inf);
 	   _XEatDataWords (dpy, rep.length);
 	   UnlockDisplay(dpy);
 	   XRecordFreeState(ret);
@@ -476,11 +479,18 @@ XRecordGetContext(Display *dpy, XRecordContext context,
 
 	    if (xclient_inf.nRanges)
 	    {
-		client_inf_str[i].ranges = (XRecordRange**) Xcalloc(xclient_inf.nRanges, sizeof(XRecordRange*));
-		if (client_inf_str[i].ranges != NULL) {
-		    ranges = (XRecordRange*)
-			Xmalloc(xclient_inf.nRanges * sizeof(XRecordRange));
+		XRecordRange	*ranges = NULL;
+
+		if (xclient_inf.nRanges < (INT_MAX / sizeof(XRecordRange))) {
+		    client_inf_str[i].ranges =
+			Xcalloc(xclient_inf.nRanges, sizeof(XRecordRange *));
+		    if (client_inf_str[i].ranges != NULL)
+			ranges =
+			    Xmalloc(xclient_inf.nRanges * sizeof(XRecordRange));
 		}
+		else
+		    client_inf_str[i].ranges = NULL;
+
 		if (!client_inf_str[i].ranges || !ranges) {
 		    /* XXX eat data */
 		    UnlockDisplay(dpy);
