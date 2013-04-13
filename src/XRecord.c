@@ -49,6 +49,9 @@ from The Open Group.
  * By Stephen Gildea, X Consortium, and Martha Zimet, NCD.
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <stdio.h>
 #include <assert.h>
 #include <X11/Xlibint.h>
@@ -56,6 +59,18 @@ from The Open Group.
 #include <X11/extensions/extutil.h>
 #include <X11/extensions/recordproto.h>
 #include <X11/extensions/record.h>
+#include <limits.h>
+
+#ifndef HAVE__XEATDATAWORDS
+static inline void _XEatDataWords(Display *dpy, unsigned long n)
+{
+# ifndef LONG64
+    if (n >= (ULONG_MAX >> 2))
+        _XIOError(dpy);
+# endif
+    _XEatData (dpy, n << 2);
+}
+#endif
 
 static XExtensionInfo _xrecord_info_data;
 static XExtensionInfo *xrecord_info = &_xrecord_info_data;
@@ -427,7 +442,7 @@ XRecordGetContext(Display *dpy, XRecordContext context,
 
     ret = (XRecordState*)Xmalloc(sizeof(XRecordState));
     if (!ret) {
-	/* XXX - eat data */
+	_XEatDataWords (dpy, rep.length);
 	UnlockDisplay(dpy);
 	SyncHandle();
 	return 0;
@@ -446,11 +461,7 @@ XRecordGetContext(Display *dpy, XRecordContext context,
 	}
         if (!client_inf || !client_inf_str)
         {
-           for(i = 0; i < count; i++)
-           {
-	        _XEatData (dpy, sizeof(xRecordClientInfo));
-                _XEatData (dpy, SIZEOF(xRecordRange)); /* XXX - don't know how many */
-           }
+	   _XEatDataWords (dpy, rep.length);
 	   UnlockDisplay(dpy);
 	   XRecordFreeState(ret);
 	   SyncHandle();
