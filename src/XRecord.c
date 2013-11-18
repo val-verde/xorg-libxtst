@@ -61,17 +61,6 @@ from The Open Group.
 #include <X11/extensions/record.h>
 #include <limits.h>
 
-#ifndef HAVE__XEATDATAWORDS
-static inline void _XEatDataWords(Display *dpy, unsigned long n)
-{
-# ifndef LONG64
-    if (n >= (ULONG_MAX >> 2))
-        _XIOError(dpy);
-# endif
-    _XEatData (dpy, n << 2);
-}
-#endif
-
 static XExtensionInfo _xrecord_info_data;
 static XExtensionInfo *xrecord_info = &_xrecord_info_data;
 static const char *xrecord_extension_name = RECORD_NAME;
