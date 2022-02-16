@@ -77,7 +77,7 @@ get_xinput_base(Display *dpy)
     first_event = 0;
 
     XQueryExtension(dpy, INAME, &major_opcode, &first_event, &first_error);
-    return (XPointer)(long)first_event;
+    return (XPointer)(intptr_t)first_event;
 }
 
 static XEXT_GENERATE_FIND_DISPLAY (find_display, xtest_info,
@@ -263,7 +263,7 @@ send_axes(
 
     req->deviceid |= MORE_EVENTS;
     req->length += ((n_axes + 5) / 6) * (SIZEOF(xEvent) >> 2);
-    ev.type = XI_DeviceValuator + (long)info->data;
+    ev.type = XI_DeviceValuator + (intptr_t)info->data;
     ev.deviceid = dev->device_id;
     ev.first_valuator = first_axis;
     while (n_axes > 0) {
@@ -305,7 +305,7 @@ XTestFakeDeviceKeyEvent(Display *dpy, XDevice *dev,
     req->reqType = info->codes->major_opcode;
     req->xtReqType = X_XTestFakeInput;
     req->type = is_press ? XI_DeviceKeyPress : XI_DeviceKeyRelease;
-    req->type += (int)(long)info->data;
+    req->type += (int)(intptr_t)info->data;
     req->detail = keycode;
     req->time = delay;
     req->deviceid = dev->device_id;
@@ -331,7 +331,7 @@ XTestFakeDeviceButtonEvent(Display *dpy, XDevice *dev,
     req->reqType = info->codes->major_opcode;
     req->xtReqType = X_XTestFakeInput;
     req->type = is_press ? XI_DeviceButtonPress : XI_DeviceButtonRelease;
-    req->type += (int)(long)info->data;
+    req->type += (int)(intptr_t)info->data;
     req->detail = button;
     req->time = delay;
     req->deviceid = dev->device_id;
@@ -356,7 +356,7 @@ XTestFakeProximityEvent(Display *dpy, XDevice *dev, Bool in_prox,
     req->reqType = info->codes->major_opcode;
     req->xtReqType = X_XTestFakeInput;
     req->type = in_prox ? XI_ProximityIn : XI_ProximityOut;
-    req->type += (int)(long)info->data;
+    req->type += (int)(intptr_t)info->data;
     req->time = delay;
     req->deviceid = dev->device_id;
     if (n_axes)
@@ -380,7 +380,7 @@ XTestFakeDeviceMotionEvent(Display *dpy, XDevice *dev,
     GetReq(XTestFakeInput, req);
     req->reqType = info->codes->major_opcode;
     req->xtReqType = X_XTestFakeInput;
-    req->type = XI_DeviceMotionNotify + (int)(long)info->data;
+    req->type = XI_DeviceMotionNotify + (int)(intptr_t)info->data;
     req->detail = is_relative;
     req->time = delay;
     req->deviceid = dev->device_id;
